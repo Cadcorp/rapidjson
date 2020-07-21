@@ -1050,7 +1050,9 @@ public:
         if (member != MemberEnd())
             return member->value;
         else {
+#if 0   // Cadcorp: typical client code uses operator[] then tests for IsObject/IsString/etc
             RAPIDJSON_ASSERT(false);    // see above note
+#endif  // Cadcorp
 
             // This will generate -Wexit-time-destructors in clang
             // static GenericValue NullValue;
